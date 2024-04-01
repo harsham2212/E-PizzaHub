@@ -1,0 +1,16 @@
+[
+  {
+    "outputFileName": "wwwroot/js/jquery-bootstrap.js",
+    "inputFiles": [
+      "wwwroot/lib/jquery/dist/jquery.js",
+      "wwwroot/lib/bootstrap/dist/js/bootstrap.bundle.js"
+    ]
+  },
+  {
+    "outputFileName": "wwwroot/js/bundle.js",
+    "inputFiles": [
+      "wwwroot/js/cart.js",
+      "wwwroot/js/site.js"
+    ]
+  }
+]

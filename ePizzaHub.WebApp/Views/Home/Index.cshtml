@@ -1,0 +1,59 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+    Layout = "_FullSizeLayout";
+}
+
+<div style="background-color:skyblue">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-8">
+                <div class="pt-5 pb-5">
+                    <h1>ePizza Hub's Online Ordering WebSite!</h1>
+                    <p class="pb-4">
+                        Yummy pizza delivered fast at your door step!
+                    </p>
+                    <p>
+                        <a href="#heading" class="btn btn-success">ORDER ONLINE NOW</a>
+                    </p>
+                </div>
+            </div>
+            <div class="col-sm-4 pt-4">
+                <img src="~/images/pizza-header.png" class="img-fluid" alt="Pizza" />
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container">
+    <h2 class="pt-4 pb-4">Pizza, Dessert and Beverages</h2>
+    <div class="row">
+        @foreach (var item in Model)
+        {
+            <div class="col-sm-4 mb-3">
+                <div class="card">
+                    <img src="@item.ImageUrl" class="card-img-top" />
+                    <div class="card-body">
+                        <h5 class="card-title">@item.Name <span class="float-end">₹@item.UnitPrice.ToString("##.#")</span></h5>
+                        <p class="card-text">
+                            @item.Description
+                        </p>
+                        <p>
+                            <span> Size: Regular</span>
+                            <span class="float-end">
+                                <button onclick="AddToCart('@item.Id','@item.Name','@item.UnitPrice',1)" class="btn btn-primary">Add To Cart</button>
+                            </span>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>
+
+<div id="toastCart" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+    <div class="toast-header">
+        <strong class="me-auto">Notification</strong>
+        <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+    </div>
+    <div class="toast-body">
+    </div>
+</div>

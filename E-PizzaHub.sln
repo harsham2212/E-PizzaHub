@@ -1,0 +1,55 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.9.34616.47
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "epizzahub.Entitites", "epizzahub.Entitites\epizzahub.Entitites.csproj", "{910E0C1A-3671-43BD-B751-54CA88D17119}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "epizzahub.Models", "epizzahub.Models\epizzahub.Models.csproj", "{CE8B7B5C-08C1-4105-8EAC-6FA9CA8A73BD}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "epizzahub.Repositories", "epizzahub.Repositories\epizzahub.Repositories.csproj", "{8D77268E-C2A8-4DAA-BBEF-5CC12A1E1B88}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "epizzahub.Services", "epizzahub.Services\epizzahub.Services.csproj", "{E475D83A-697C-4D25-86F2-BB100EC8F651}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ePizzaHub.WebApp", "ePizzaHub.WebApp\ePizzaHub.WebApp.csproj", "{2C900B0C-DF5A-40CA-AF41-5D9E73C2C61B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "epizzahub.API", "epizzahub.API\epizzahub.API.csproj", "{B1B90694-05C3-4F41-A818-0622D976A761}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{910E0C1A-3671-43BD-B751-54CA88D17119}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{910E0C1A-3671-43BD-B751-54CA88D17119}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{910E0C1A-3671-43BD-B751-54CA88D17119}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{910E0C1A-3671-43BD-B751-54CA88D17119}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CE8B7B5C-08C1-4105-8EAC-6FA9CA8A73BD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CE8B7B5C-08C1-4105-8EAC-6FA9CA8A73BD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CE8B7B5C-08C1-4105-8EAC-6FA9CA8A73BD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CE8B7B5C-08C1-4105-8EAC-6FA9CA8A73BD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8D77268E-C2A8-4DAA-BBEF-5CC12A1E1B88}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8D77268E-C2A8-4DAA-BBEF-5CC12A1E1B88}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8D77268E-C2A8-4DAA-BBEF-5CC12A1E1B88}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8D77268E-C2A8-4DAA-BBEF-5CC12A1E1B88}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E475D83A-697C-4D25-86F2-BB100EC8F651}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E475D83A-697C-4D25-86F2-BB100EC8F651}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E475D83A-697C-4D25-86F2-BB100EC8F651}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E475D83A-697C-4D25-86F2-BB100EC8F651}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2C900B0C-DF5A-40CA-AF41-5D9E73C2C61B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2C900B0C-DF5A-40CA-AF41-5D9E73C2C61B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2C900B0C-DF5A-40CA-AF41-5D9E73C2C61B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2C900B0C-DF5A-40CA-AF41-5D9E73C2C61B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B1B90694-05C3-4F41-A818-0622D976A761}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B1B90694-05C3-4F41-A818-0622D976A761}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B1B90694-05C3-4F41-A818-0622D976A761}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B1B90694-05C3-4F41-A818-0622D976A761}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {1DD0AD9C-EE7B-4E79-9478-01710D92858B}
+	EndGlobalSection
+EndGlobal

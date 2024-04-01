@@ -1,0 +1,146 @@
+﻿@using epizzahub.Models
+@using ePizzaHub.WebApp.Helpers
+@model epizzahub.Models.PaymentModel
+@{
+    ViewData["Title"] = "Index";
+    AddressModel address = TempData.Peek<AddressModel>("Address");
+}
+
+<h1>Order Details</h1>
+@if (Model != null && Model.Cart.Items.Count > 0)
+{
+    <div class="row">
+        <div class="col-sm-8">
+            <div class="card mb-3">
+                <div class="card-header">
+                    <h5 class="card-title">
+                        Order Items (@Model.Cart.Items.Count)
+                    </h5>
+                </div>
+                <div class="card-body">
+                    @foreach (var item in Model.Cart.Items)
+                    {
+                        <div class="row">
+                            <div class="col-sm-2">
+                                <img src="@item.ImageUrl" class="img-fluid" />
+                            </div>
+                            <div class="col-sm-6">
+                                <h5>@item.Name</h5>
+                                <p>₹@item.UnitPrice.ToString("##.#")</p>
+                            </div>
+                            <div class="col-sm-3">
+                                <input type="text" readonly class="form-control text-center" value="@item.Quantity" />
+                            </div>
+                        </div>
+                    }
+                </div>
+            </div>
+
+            <div class="col-sm-12">
+                <h5 class="mt-2  ps-2">Delivery Address</h5>
+            </div>
+            <hr />
+            <div class="card-body pb-0">
+                <dl class="row">
+                    <dt class="col-sm-2">
+                        Street
+                    </dt>
+                    <dd class="col-sm-4">
+                        @address.Street
+                    </dd>
+                    <dt class="col-sm-2">
+                        Locality
+                    </dt>
+                    <dd class="col-sm-4">
+                        @address.Locality
+                    </dd>
+                    <dt class="col-sm-2">
+                        Zip Code
+                    </dt>
+                    <dd class="col-sm-4">
+                        @address.ZipCode
+                    </dd>
+                    <dt class="col-sm-2">
+                        Contact No.
+                    </dt>
+                    <dd class="col-sm-4">
+                        @address.PhoneNumber
+                    </dd>
+                </dl>
+            </div>
+        </div>
+        <div class="col-sm-4">
+            <div class="card">
+                <div class="card-header">
+                    <h5>Order Summary</h5>
+                </div>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <p>Amount</p>
+                            <p>Tax</p>
+                            <p>Total</p>
+                        </div>
+                        <div class="col-sm-6">
+                            <p>₹@Model.Cart.Total.ToString("##.#")</p>
+                            <p>₹@Model.Cart.Tax.ToString("##.#")</p>
+                            <p>₹@Model.Cart.GrandTotal.ToString("##.#")</p>
+                        </div>
+                    </div>
+                </div>
+                @if (CurrentUser != null)
+                {
+                    <a id="rzp-button" href="javascript:void(0)" class="btn btn-success w-70">Pay With RazorPay</a>
+                    <form asp-action="Status" asp-controller="Payment" id="PaymentForm" method="post" name="PaymentForm">
+                        <input type="hidden" name="Receipt" id="Receipt" value="@Model.Receipt" />
+                        <input type="hidden" name="Currency" id="Currency" value="@Model.Currency" />
+                        <input type="hidden" name="rzp_signature" id="rzp_signature" />
+                        <input type="hidden" name="rzp_paymentid" id="rzp_paymentid" />
+                        <input type="hidden" name="rzp_orderid" id="rzp_orderid" />
+                    </form>
+                }
+            </div>
+        </div>
+    </div>
+}
+
+<script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+<script>
+    var options = {
+        "key": "@Model.RazorpayKey",
+        "amount": "@(Model.GrandTotal * 100)",
+        "currency": "@Model.Currency",
+        "name": "@Model.Name",
+        "description": "@Model.Description",
+        "image": "/images/logo.png",
+        "order_id": "@Model.OrderId",
+        "handler": function (response) {
+            $('#rzp_paymentid').val(response.razorpay_payment_id);
+            $('#rzp_orderid').val(response.razorpay_order_id);
+            $("#rzp_signature").val(response.razorpay_signature);
+            $('#PaymentForm').submit();
+        },
+        "prefill": {
+            "name": "@CurrentUser.Name",
+            "email": "@CurrentUser.Email",
+            "contact": "@CurrentUser.PhoneNumber"
+        },
+        "notes": {
+            "address": "NA"
+        },
+        "theme": {
+            "color": "#4285F4"
+        }
+    };
+
+    window.onload = function () {
+        document.getElementById('rzp-button').click();
+    }
+
+    var rzp1 = new Razorpay(options);
+    document.getElementById('rzp-button').onclick = function (e) {
+        rzp1.open();
+        e.preventDefault();
+    }
+</script></h1>
+
